@@ -1,0 +1,24 @@
+{
+  "name": "tvdatafeedclient-js",
+  "version": "1.0.0",
+  "main": "src/TradingViewClient.js",
+  "scripts": {
+    "start": "node example/candles.js",
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "tradingView",
+    "candlestick",
+    "crypto",
+    "technical-analysis",
+    "nodejs",
+    "tvdatafeed"
+  ],
+  "author": "Solomon Obafemi (@solobdev, @solexki)",
+  "license": "MIT",
+  "description": "What could Be! Lightweight TradingView Websocket SDK for retrieving candle data",
+  "dependencies": {
+    "uuid": "^11.1.0",
+    "ws": "^8.18.3"
+  }
+}
