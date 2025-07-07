@@ -131,7 +131,7 @@ class TradingViewClient {
     exchange = "BINANCE",
     symbol = "BTCUSDT",
     resolution = "1",
-    n_bar = 300
+    nBars = 300
   ) {
     if (this.candlePromise) {
       return Promise.reject("Another candle request is already in progress.");
@@ -166,7 +166,7 @@ class TradingViewClient {
           "s1",
           "sds_sym_1",
           resolution,
-          n_bar,
+          nBars,
           "",
         ],
       });
