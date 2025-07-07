@@ -44,7 +44,19 @@ npm install tvdatafeedclient-js
 
 This package is open to contribution, suggestion.
 Refer to Features in Pipline, there are many ways this can be improved for better usage and data access.
+if you'd like to improve, fix or extend, please follow the guidelines
+
+- Keep your pull requests focused. Small is better.
+
+- Always test your changes before opening a PR.
+
+- Avoid pushing directly to main.
+
+- If you're adding a new feature or breaking change, please open an issue first for discussion.
+
 Let's makes it better together.
+
+
 
 ---
 
