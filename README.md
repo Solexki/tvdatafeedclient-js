@@ -6,10 +6,12 @@ This is just what could be.
 
 ---
 
-## What this project solved
+## What This Project Solves
+I build a lot of bots and tools that rely on TradingView data, and honestly, it's always been a pain. Every time I needed that data, I had to switch over to Python just to use tvdatafeed. It felt like a long detour for something that should've been simple — especially since most of my projects are in JavaScript or Node.js.
 
-I creat lot of bots or software that requires tradingview data and many times i had to switch to python just to use tvdatafeed.
-the absense of npm package(i don't know of any, i might be wrong) to achieve this always cause me to take a very long short, I felt peace when i used this package to access tradingview data.
+There wasn’t a solid npm package (at least not that I could find) that gave me what I needed. That always forced me to either rewrite parts of my project in Python or come up with ugly workarounds.
+
+The day I finally used this package to fetch TradingView data directly from Node.js, it just clicked. I felt at peace. No hacks, no switching languages — just clean JavaScript doing what I needed it to do.
 
 ---
 
@@ -41,21 +43,21 @@ npm install tvdatafeedclient-js
 ---
 
 ## Contribution
+This package is open to contributions and suggestions.
 
-This package is open to contribution, suggestion.
-Refer to Features in Pipline, there are many ways this can be improved for better usage and data access.
-if you'd like to improve, fix or extend, please follow the guidelines
+Check out the Features in Pipeline section — there are lots of ways this project can be improved for better usability and more powerful data access. If you’re interested in fixing bugs, adding new features, or just making things cleaner, you’re more than welcome to jump in.
 
-- Keep your pull requests focused. Small is better.
+Before contributing, please keep the following in mind:
+
+- Keep your pull requests focused — smaller PRs are easier to review and merge.
 
 - Always test your changes before opening a PR.
 
-- Avoid pushing directly to main.
+- Don’t push directly to main.
 
-- If you're adding a new feature or breaking change, please open an issue first for discussion.
+- If you’re introducing a new feature or a breaking change, open an issue first so we can discuss it.
 
-Let's makes it better together.
-
+Let’s build something better together. 
 
 
 ---

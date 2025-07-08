@@ -1,6 +1,6 @@
 {
   "name": "tvdatafeedclient-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "src/TradingViewClient.js",
   "types": "types/index.d.ts",
   "exports": {
@@ -27,9 +27,6 @@
     "uuid": "^11.1.0",
     "ws": "^8.18.3"
   },
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Solexki/tvdatafeedclient-js.git"
