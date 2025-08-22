@@ -1,17 +1,24 @@
 {
   "name": "tvdatafeedclient-js",
-  "version": "1.0.2",
-  "main": "src/TradingViewClient.js",
-  "types": "types/index.d.ts",
+  "version": "2.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./src/TradingViewClient.js"
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
     "start": "node example/candles.js",
     "test": "node test/test.js"
   },
+  "type": "module",
   "keywords": [
     "tradingView",
     "candlestick",
@@ -34,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/Solexki/tvdatafeedclient-js/issues"
   },
-  "homepage": "https://github.com/Solexki/tvdatafeedclient-js#readme"
+  "homepage": "https://github.com/Solexki/tvdatafeedclient-js#readme",
+  "devDependencies": {
+    "@types/ws": "^8.18.1"
+  }
 }

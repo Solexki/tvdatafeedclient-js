@@ -1,5 +1,5 @@
-const TradingViewClient = require("../src/TradingViewClient");
-const assert = require("assert");
+import { TradingViewClient } from "../dist/index.js";
+import assert from "assert";
 
 (async () => {
   const tv = new TradingViewClient();
@@ -17,6 +17,5 @@ const assert = require("assert");
   assert(sample.high !== undefined, "Expected candles to have high field");
   assert(sample.low !== undefined, "Expected candles to have low field");
   assert(sample.volume !== undefined, "Expected candles to have volume field");
-
   console.log("All test are passed!");
 })();

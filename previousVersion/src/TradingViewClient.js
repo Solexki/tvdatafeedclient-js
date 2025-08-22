@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require("uuid");
 class TradingViewClient {
   constructor(auth_token = null) {
     this.TV_SOCKET = "wss://data.tradingview.com/socket.io/websocket";
-    this.session = this.#tvSessionId("qs");
+    this.session = this.#tvSessionId("qs");a
     this.chartSession = this.#tvSessionId("cs");
     this.ws = null;
     this.candlePromise = null;
