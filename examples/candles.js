@@ -1,4 +1,4 @@
-const TradingViewClient = require("../src/TradingViewClient");
+import { TradingViewClient } from "tvdatafeedclient-js";
 
 (async () => {
   const tv = new TradingViewClient();
