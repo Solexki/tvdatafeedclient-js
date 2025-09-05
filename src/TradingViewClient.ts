@@ -2,7 +2,7 @@ import WebSocket from "ws";
 import { v4 } from "uuid";
 const uuidv4 = v4;
 
-export interface TradingViewClientType {
+export interface TradingViewClient {
   connect(): Promise<void>;
   getCandles(
     exchange?: string,
@@ -32,7 +32,7 @@ interface CandleResult {
   volume: number;
 }
 
-export class TradingViewClient implements TradingViewClientType {
+export class TvDataFeed implements TradingViewClient {
   private readonly TV_SOCKET: string =
     "wss://data.tradingview.com/socket.io/websocket";
   private session: string = this.tvSessionId("qs");
@@ -47,7 +47,7 @@ export class TradingViewClient implements TradingViewClientType {
     this.auth_token = auth_token || "unauthorized_user_token";
   }
 
-  tvSessionId(prefix = "qs") {
+  private tvSessionId(prefix = "qs") {
     return `${prefix}_${uuidv4().slice(0, 12).replace(/-/g, "")}`;
   }
 
@@ -84,17 +84,33 @@ export class TradingViewClient implements TradingViewClientType {
       this.ws.on("close", () => {
         // console.log("Disconnected from TradingView");
 
-        this.send({
-          m: "chart_remove_series",
-          p: [this.session, this.chartSession],
-        });
-
-        this.send({
-          m: "chart_delete_session",
-          p: [this.session],
-        });
+        this.disconnect();
       });
     });
+  }
+
+  //disConnect Session
+
+  public disconnect(): void {
+    if (this.ws) {
+      this.send({
+        m: "chart_remove_series",
+        p: [this.session, this.chartSession],
+      });
+
+      this.send({
+        m: "chart_delete_session",
+        p: [this.session],
+      });
+
+      this.ws.close();
+      this.ws = null;
+    }
+
+    // Clear promises & state
+    this.candlePromise = null;
+    this.candleResolved = null;
+    this.exchangeSymbol = null;
   }
 
   //Let's Setup session :-p
@@ -172,7 +188,7 @@ export class TradingViewClient implements TradingViewClientType {
     //  console.table(this.candleResolved);
   }
 
-  async getCandles(
+  public async getCandles(
     exchange = "BINANCE",
     symbol = "BTCUSDT",
     resolution = "1",
@@ -181,6 +197,12 @@ export class TradingViewClient implements TradingViewClientType {
     if (this.candlePromise) {
       return Promise.reject("Another candle request is already in progress.");
     }
+    //Let start connection
+    if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+      await this.connect();
+    }
+
+    //Get candles
     this.candlePromise = new Promise((resolve) => {
       this.candleResolved = resolve;
       this.exchangeSymbol = `${exchange}:${symbol}`;

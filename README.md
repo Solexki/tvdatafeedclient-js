@@ -41,6 +41,10 @@ The day I finally used this package to fetch TradingView data directly from Node
 npm install tvdatafeedclient-js
 ```
 
+`js const { TvDataFeed } = require("tvdatafeedclient-js")`
+
+`js import { TvDataFeed } from "tvdatafeedclient-js";`
+
 ---
 
 ## Contribution
@@ -75,12 +79,19 @@ Let’s build something better together.
 
 - Project is properly typed and better DX.
 
----
+## 3.0.0 - 2025-09-05
 
-## Credit.
+## Changed
 
-- I used ChatGpt for errors i encounted, code refactor (No Nitpickin was added to the prompt)
-- Chrome dev tools which i used to understands tradingView websocket messages proccess.
+- Rename class export to TvDataFeed
+- Make connect method Optional
+- getCandle() method now call connect before fetching candle.
+- Added disconnect() public method
+- **Breaking Change:** You now need to destructure imports: `js const { TvDataFeed } = require("tvdatafeedclient-js")`
+
+`js import { TvDataFeed } from "tvdatafeedclient-js";`
+
+- More improvements
 
 ---
 

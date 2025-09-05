@@ -1,9 +1,8 @@
-import { TradingViewClient } from "../dist/index.js";
+import { TvDataFeed } from "../dist/index.js";
 import assert from "assert";
 
 (async () => {
-  const tv = new TradingViewClient();
-  await tv.connect();
+  const tv = new TvDataFeed();
 
   const candles = await tv.getCandles("BINANCE", "BNBUSDT", "1", 300);
   console.table(candles);

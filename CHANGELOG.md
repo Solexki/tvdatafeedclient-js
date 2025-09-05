@@ -9,3 +9,17 @@
 `js import { TradingViewClient } from "tvdatafeedclient-js";`
 
 - Project is properly typed and better DX.
+
+## 3.0.0 - 2025-09-05
+
+## Changed
+
+- Rename class export to TvDataFeed
+- Make connect method Optional
+- getCandle() method now call connect before fetching candle.
+- Added disconnect() public method
+- **Breaking Change:** You now need to destructure imports: `js const { TvDataFeed } = require("tvdatafeedclient-js")`
+
+`js import { TvDataFeed } from "tvdatafeedclient-js";`
+
+- More improvements
